@@ -26,7 +26,7 @@ public class ModeloDecision {
 
     public void calcularCriterios(List<ICriterio> criteriosElegidos) {
         for (ICriterio criterio : criteriosElegidos) {
-            criterio.calcularDecision(matrizBeneficios);
+            criterio.calcularAlternativa(matrizBeneficios);
         }
     }
 

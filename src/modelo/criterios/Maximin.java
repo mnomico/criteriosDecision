@@ -4,9 +4,9 @@ import modelo.MatrizBeneficios;
 
 public class Maximin implements ICriterio {
     private double indicadores[];
-    private int alternativa;
+    private int mejorAlternativa;
 
-    public int calcularDecision(MatrizBeneficios matrizBeneficios) {
+    public int calcularAlternativa(MatrizBeneficios matrizBeneficios) {
         int alternativas = matrizBeneficios.getCantidadAlternativas();
         int estados = matrizBeneficios.getCantidadEstados();
         indicadores = new double[alternativas];
@@ -22,14 +22,15 @@ public class Maximin implements ICriterio {
         }
 
         double maximo = indicadores[0];
+        mejorAlternativa = 0;
         for (int i = 1; i < indicadores.length; i++) {
             if (indicadores[i] > maximo) {
                 maximo = indicadores[i];
-                alternativa = i;
+                mejorAlternativa = i;
             }
         }
 
-        return alternativa;
+        return mejorAlternativa;
     }
 
     public Object getIndicadores() {
