@@ -3,8 +3,8 @@ package modelo;
 public class TablaArrepentimiento {
     private final double tabla[][];
 
-    public TablaArrepentimiento(TablaDatos datos) {
-        int filas = datos.getCantidadDecisiones();
+    public TablaArrepentimiento(MatrizBeneficios datos) {
+        int filas = datos.getCantidadAlternativas();
         int columnas = datos.getCantidadEstados();
         tabla = new double[filas][columnas];
 
