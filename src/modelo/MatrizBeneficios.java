@@ -3,14 +3,14 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TablaDatos {
+public class MatrizBeneficios {
     private final double[][] tabla;
-    private final List<String> listaDecisiones;
+    private final List<String> listaAlternativas;
     private final List<String> listaEstados;
 
-    public TablaDatos(int decisiones, int estados) {
-        tabla = new double[decisiones][estados];
-        listaDecisiones = new ArrayList<>();
+    public MatrizBeneficios(int alternativas, int estados) {
+        tabla = new double[alternativas][estados];
+        listaAlternativas = new ArrayList<>();
         listaEstados = new ArrayList<>();
     }
 
@@ -23,11 +23,11 @@ public class TablaDatos {
     }
 
     public String getDecision(int decision) {
-        return listaDecisiones.get(decision);
+        return listaAlternativas.get(decision);
     }
 
     public void setDecision(int decision, String nombreDecision) {
-        listaDecisiones.set(decision, nombreDecision);
+        listaAlternativas.set(decision, nombreDecision);
     }
 
     public String getEstado(int estado) {
@@ -38,7 +38,7 @@ public class TablaDatos {
         listaEstados.set(estado, nombreEstado);
     }
 
-    public int getCantidadDecisiones() {
+    public int getCantidadAlternativas() {
         return tabla.length;
     }
 
