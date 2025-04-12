@@ -24,11 +24,10 @@ public class ModeloDecision {
         tablaDatos.setEstado(estado, nombreEstado);
     }
 
-    public List<ICriterio> calcularCriterios(List<ICriterio> criteriosElegidos) {
+    public void calcularCriterios(List<ICriterio> criteriosElegidos) {
         for (ICriterio criterio : criteriosElegidos) {
             criterio.calcularDecision(tablaDatos);
         }
-        return criteriosElegidos;
     }
 
 }
