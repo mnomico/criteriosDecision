@@ -6,7 +6,7 @@ public class Maximax implements ICriterio {
     private double indicadores[];
     private int mejorAlternativa;
 
-    public int calcularAlternativa(MatrizBeneficios matrizBeneficios) {
+    public void calcularAlternativa(MatrizBeneficios matrizBeneficios) {
         int alternativas = matrizBeneficios.getCantidadAlternativas();
         int estados = matrizBeneficios.getCantidadEstados();
         indicadores = new double[alternativas];
@@ -30,7 +30,6 @@ public class Maximax implements ICriterio {
             }
         }
 
-        return mejorAlternativa;
     }
 
     public Object getIndicadores() {
