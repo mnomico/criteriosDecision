@@ -8,7 +8,7 @@ public class Savage implements ICriterio {
     private double[] indicadores;
     private int mejorAlternativa;
 
-    public int calcularAlternativa(MatrizBeneficios matrizBeneficios) {
+    public void calcularAlternativa(MatrizBeneficios matrizBeneficios) {
         tablaArrepentimiento = new TablaArrepentimiento(matrizBeneficios);
         int alternativas = matrizBeneficios.getCantidadAlternativas();
         int estados = matrizBeneficios.getCantidadEstados();
@@ -34,7 +34,6 @@ public class Savage implements ICriterio {
             }
         }
 
-        return mejorAlternativa;
     }
 
     public Object getIndicadores() {
