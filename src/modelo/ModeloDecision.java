@@ -20,7 +20,7 @@ public class ModeloDecision implements IModeloDecision {
     }
 
     public void cargarMatriz(double[][] datos) throws Exception {
-        matrizBeneficios.setTabla(datos);
+        matrizBeneficios.setMatriz(datos);
     }
 
     public void actualizarDato(int alternativa, int estado, double valor) {
