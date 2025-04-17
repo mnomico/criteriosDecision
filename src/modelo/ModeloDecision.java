@@ -19,12 +19,12 @@ public class ModeloDecision {
 
     }
 
-    public void actualizarDato(int decision, int estado, double valor) {
-        matrizBeneficios.setValor(decision, estado, valor);
+    public void actualizarDato(int alternativa, int estado, double valor) {
+        matrizBeneficios.setValor(alternativa, estado, valor);
     }
 
-    public void actualizarDecision(int decision, String nombreDecision) {
-        matrizBeneficios.setDecision(decision, nombreDecision);
+    public void actualizarDecision(int alternativa, String nombreDecision) {
+        matrizBeneficios.setDecision(alternativa, nombreDecision);
     }
 
     public void actualizarEstado(int estado, String nombreEstado) {
