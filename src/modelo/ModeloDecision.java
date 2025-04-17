@@ -7,8 +7,15 @@ public class ModeloDecision {
     private MatrizBeneficios matrizBeneficios;
     private List<ICriterio> listaCriterios;
 
-    public void definirTamanioTabla(int decisiones, int estados){
-        matrizBeneficios = new MatrizBeneficios(decisiones, estados);
+    public void definirTamanioMatriz(int alternativas, int estados){
+        if (matrizBeneficios != null
+            && matrizBeneficios.getCantidadAlternativas() == alternativas
+            && matrizBeneficios.getCantidadEstados() == estados)
+        {
+            return;
+        }
+        matrizBeneficios = new MatrizBeneficios(alternativas, estados);
+    }
 
     }
 
