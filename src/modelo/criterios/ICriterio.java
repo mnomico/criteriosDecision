@@ -3,9 +3,9 @@ package modelo.criterios;
 import modelo.MatrizBeneficios;
 
 public interface ICriterio {
-    public int calcularAlternativa(MatrizBeneficios matrizBeneficios);
+   void calcularAlternativa(MatrizBeneficios matrizBeneficios);
 
-    public Object getIndicadores();
+   Object getIndicadores();
 
-    public String toString();
+   String toString();
 }
