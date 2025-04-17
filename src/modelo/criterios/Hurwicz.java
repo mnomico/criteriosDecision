@@ -15,7 +15,7 @@ public class Hurwicz implements ICriterio {
         this.alfa = 0.5;
     }
 
-    public int calcularAlternativa(MatrizBeneficios matrizBeneficios) {
+    public void calcularAlternativa(MatrizBeneficios matrizBeneficios) {
         int alternativas = matrizBeneficios.getCantidadAlternativas();
         int estados = matrizBeneficios.getCantidadEstados();
         indicadores = new double[alternativas];
@@ -42,7 +42,6 @@ public class Hurwicz implements ICriterio {
             }
         }
 
-        return mejorAlternativa;
     }
 
     public Object getIndicadores() {
