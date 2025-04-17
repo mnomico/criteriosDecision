@@ -1,11 +1,13 @@
 package modelo;
 
 import modelo.criterios.ICriterio;
-import java.util.List;
+import modelo.criterios.ListaCriterios;
 
-public class ModeloDecision {
+import java.util.ArrayList;
+
+public class ModeloDecision implements IModeloDecision {
     private MatrizBeneficios matrizBeneficios;
-    private List<ICriterio> listaCriterios;
+    private ArrayList<ICriterio> criteriosCalculados;
 
     public void definirTamanioMatriz(int alternativas, int estados){
         if (matrizBeneficios != null
@@ -17,6 +19,8 @@ public class ModeloDecision {
         matrizBeneficios = new MatrizBeneficios(alternativas, estados);
     }
 
+    public void cargarMatriz(double[][] datos) throws Exception {
+        matrizBeneficios.setTabla(datos);
     }
 
     public void actualizarDato(int alternativa, int estado, double valor) {
@@ -31,9 +35,23 @@ public class ModeloDecision {
         matrizBeneficios.setEstado(estado, nombreEstado);
     }
 
-    public void calcularCriterios(List<ICriterio> criteriosElegidos) {
-        for (ICriterio criterio : criteriosElegidos) {
-            criterio.calcularAlternativa(matrizBeneficios);
+    public ArrayList<String> getCriterios() {
+        ArrayList<String> criterios = new ArrayList<>();
+        for (ICriterio criterio : ListaCriterios.getCriterios()) {
+            criterios.add(criterio.toString());
+        }
+        return criterios;
+    }
+
+    public void calcularCriterios(ArrayList<String> criteriosSeleccionados) throws Exception {
+        criteriosCalculados = new ArrayList<>();
+        for (String criterio : criteriosSeleccionados) {
+            ICriterio iCriterio = ListaCriterios.buscarCriterio(criterio);
+            if (iCriterio == null) {
+                throw new Exception("Criterio no encontrado: " + criterio);
+            }
+            iCriterio.calcularAlternativa(matrizBeneficios);
+            criteriosCalculados.add(iCriterio);
         }
     }
 
